@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: shiro-core-1.4.0.jar vidispine-logging-2.4.0.jar
+
