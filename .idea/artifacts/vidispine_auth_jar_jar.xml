@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="vidispine-auth-jar:jar">
+    <output-path>$PROJECT_DIR$/test-environment</output-path>
+    <root id="root">
+      <element id="archive" name="vidispine-auth-jar.jar">
+        <element id="module-output" name="vidispine-auth-jar" />
+      </element>
+      <element id="library" level="project" name="auth-api-5.2.1" />
+      <element id="library" level="project" name="shiro-core-1.4.0" />
+      <element id="library" level="project" name="vidispine-logging-2.4.0" />
+    </root>
+  </artifact>
+</component>

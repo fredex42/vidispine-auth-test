@@ -1,0 +1,22 @@
+package com.gu;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.vidispine.security.auth.spi.VidispineUserInfo;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.junit.Test;
+
+public class JwtUserTest {
+    @Test
+    public void TestItLoadsOK() {
+        JwtUserCreator instance = new JwtUserCreator();
+        SimpleAuthenticationInfo testInfo = new SimpleAuthenticationInfo();
+
+        String testJwt = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJCMWhKcXZuSVQ0NW9ZNEdReWxVQUZiSVVrODBROHpSX0E2bklRWjJaRnprIn0.eyJleHAiOjE1OTA0MjczNzEsImlhdCI6MTU5MDQyNzA3MSwianRpIjoiNDIwYjc3NTgtY2NhNi00M2M0LTk4NWQtOTIwZDM2MjJmZTYzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDkwL2F1dGgvcmVhbG1zL3ZpZGlzcGluZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJlNGI1ODgzNC1iNjkyLTQyYWYtYWRhOS1kMzdkMjdjMTM3YWEiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJrY3Rlc3QiLCJzZXNzaW9uX3N0YXRlIjoiZjljYzIzNzAtZjkwMC00YzJjLWJkN2YtN2RjNzk5MDNlN2MwIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL3d3dy5rZXljbG9hay5vcmciXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJUZXN0IFVzZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0ZXN0dXNlciIsImdpdmVuX25hbWUiOiJUZXN0IiwiZmFtaWx5X25hbWUiOiJVc2VyIn0.APUlQ4VigX50X0EVtvlNOFkQNVUIXycS7mfScu7BTu75WvPBcurSHitt3U5zQrcIvvefHMWZKKmm4LNVXDTJk3iRzfCUj-ylDPARi6RgrW-Rqmc-2iH4Ng3aq9gj0XELLtYdRRT7X8tTKFHS-XR8-2keTl5ThJXMmVzqMUqUdHX1LcjAZj0_tWAKxQvGOkcyT5qAVKuytPpy1Qpg8wjk1nfd_8iWqYtBtRYrAoX8yVQRxx4zaJF-iFVEt2tAvcrQrWiAzzUZgoSIgE2bsXchpqf74nAC0GGUySomMxW_bswN_Odq2ReBWPE3KdbAbg3myF_7qaGOlr2K48NSZeONvg";
+        testInfo.setCredentials(testJwt.toCharArray());
+
+        VidispineUserInfo result = instance.getUserInfo(testInfo);
+        assertEquals(result.getUsername(),"demouser");
+        assertEquals(result.getRealName(), "Hardcoded DemoUser");
+    }
+}

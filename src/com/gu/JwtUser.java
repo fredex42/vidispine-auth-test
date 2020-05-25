@@ -6,14 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 public class JwtUser implements VidispineUserInfo {
+    private final String username;
+    private final String realname;
+
+    public JwtUser(String username, String forename, String given_name) {
+        this.username = username;
+        this.realname = forename + " " + given_name;
+    }
+
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public String getRealName() {
-        return null;
+        return realname;
     }
 
     @Override
@@ -23,6 +31,6 @@ public class JwtUser implements VidispineUserInfo {
 
     @Override
     public List<String> getGroups() {
-        return null;
+        return List.of();
     }
 }
